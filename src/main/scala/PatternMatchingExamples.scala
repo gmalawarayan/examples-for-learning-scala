@@ -1,5 +1,13 @@
 import scala.util.Random
 
+case class Car(carModel: String)
+
+case class Trip(place: String)
+
+case class NothingWon(greeting: String = "Better luck next time!!")
+
+case class CashPrice(cashAmount: String)
+
 object PatternMatchingExamples extends App {
 
   private val listOfOutComes = List(Car("Tesla"), Car("Ford"), Car("Nissan"), Car("Toyota"), Trip("Mumbai"), Trip("London"), Trip("Frankfurt"), Trip("Chennai"),
@@ -7,6 +15,7 @@ object PatternMatchingExamples extends App {
   )
 
   luckDip()
+
   private def luckDip(): Unit = {
     val luckDip = Random.shuffle(listOfOutComes).take(1)(0)
 
@@ -19,8 +28,3 @@ object PatternMatchingExamples extends App {
   }
 
 }
-
-case class Car(carModel: String)
-case class Trip(place: String)
-case class NothingWon(greeting: String = "Better luck next time!!")
-case class CashPrice(cashAmount: String)

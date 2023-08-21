@@ -40,6 +40,4 @@ object ScalaCollections extends App {
   println(listOfEventsOrganised)
 
 
-
-
 }

@@ -1,7 +1,4 @@
-
-
 import scala.util.{Failure, Success, Try}
-
 
 object Main extends App {
   print("hello world  ")
@@ -13,60 +10,46 @@ object Main extends App {
   println(x)
   println(y)
 
-  val employees = Set("Malaw", "someone1", "Someone2")
-
-  var checkIfEmployee = employees.find(_ ==  "Malaw").get
+  private val employees = Set("Malaw", "someone1", "Someone2")
+  private val meaningOfLife = "Happy"
   println(checkIfEmployee)
 
-   checkIfEmployee = employees.find(_ ==  "something").getOrElse("Employee Not Found")
+  checkIfEmployee = employees.find(_ == "something").getOrElse("Employee Not Found")
   println(checkIfEmployee)
-
-  val meaningOfLife = "Happy"
+  private val isVowel = Set('a', 'e', 'i', 'o', 'u')
   meaningOfLife match {
     case "Happy" => "I am Happy"
     case "Sad" => "I am Sad"
   }
 
   println(meaningOfLife)
-
-  val isVowel = Set('a', 'e', 'i', 'o', 'u')
-
-  var isThisLetterAVowel = isVowel('t')
+  private val stringToCheck = "Malawarayan"
+  private val outcome = Try(10 / 0)
 
   println(isThisLetterAVowel)
+  private val expression = Set("Good Morning", "Good Afternoon", "Good Evening", "Good Night")
+  var checkIfEmployee = employees.find(_ == "Malaw").get
+  println(vowelsInString(stringToCheck))
+  var result = StringToInt("5")
 
-  def vowelsInString(string : String) = string.filterNot(isVowel)
-
-  println(vowelsInString("Malawarayan"))
-
-
-  val outcome = Try (10/0)
-
-  println("is it successful " , outcome.isSuccess)
-  println("is it a failure " , outcome.isFailure)
+  println("is it successful ", outcome.isSuccess)
+  println("is it a failure ", outcome.isFailure)
 
   outcome match {
     case Success(value) => println("it is a successful computation ", value)
     case Failure(e) => println("it is a unsuccessful computation ", e.getMessage)
   }
+  private var isThisLetterAVowel = isVowel('t')
 
-  def StringToInt(string: String) : Either[String, Int] = {
-    try {
-      Right(string.toInt)
-    } catch {
-      case error: NumberFormatException => Left("Error: " +error.getMessage)
-    }
-  }
-
-  var result = StringToInt("5")
+  private def vowelsInString(stringToCheckIfWordHasVowels: String) = stringToCheckIfWordHasVowels.filterNot(isVowel)
   println(result)
   result = StringToInt("hello")
 
-  def dividingByZero(number: Int): Either[String, Int] = {
+  private def StringToInt(string: String): Either[String, Int] = {
     try {
-      Right(number / 0)
+      Right(string.toInt)
     } catch {
-      case error: Exception => Left("Error: " + error.getMessage)
+      case error: NumberFormatException => Left("Error: " + error.getMessage)
     }
   }
 
@@ -75,7 +58,13 @@ object Main extends App {
   result = dividingByZero(0)
   println(result)
 
-  val expression = Set("Good Morning", "Good Afternoon", "Good Evening", "Good Night")
+  private def dividingByZero(number: Int): Either[String, Int] = {
+    try {
+      Right(number / 0)
+    } catch {
+      case error: Exception => Left("Error: " + error.getMessage)
+    }
+  }
 
   expression.foreach {
     case "Good Morning" => println("it is in the morning")

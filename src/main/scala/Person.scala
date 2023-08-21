@@ -4,7 +4,7 @@ class Person {
 
   def getSalary() = salary
 
-  def setSalary(newSalary :Int): Unit = {
+  def setSalary(newSalary: Int): Unit = {
     salary = newSalary
   }
 
